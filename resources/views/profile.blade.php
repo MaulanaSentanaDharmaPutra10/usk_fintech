@@ -1,8 +1,5 @@
 @extends('layouts.master')
 @section('content')
-<div class="kembali mb-9">
-  <a class="btn btn-primary" href="{{ route('index')}}">Kembali</a>
-</div>
 <div class="top flex lg:flex-row flex-col gap-8 justify-between items-center bg-white px-8 py-24 rounded-md shadow-md">
     <div class="top-left">
         
@@ -12,11 +9,23 @@
                   <img src="https://this-person-does-not-exist.com/static/images/fake-2.jpg" />
                 </div>
               </div>
-              <div class="description">
+              <div class="description flex justify-start flex-col">
                 <h1 class="text-xl font-semibold">{{ Str::ucfirst( Auth::user()->name ) }}</h1>
                 <p>Joined Date: {{ Auth::user()->created_at }}</p>
-                <p class="text-2xl font-semibold">{{ format_to_rp(Auth::user()->wallet->credit) }}</p>
-            </div>
+                <p class="text-3xl font-semibold">
+                  {{ format_to_rp(Auth::user()->wallet->credit) }} 
+                  <a href="{{ route('tarik.tunai') }}" class="topup h-full bg-green-500 p-2 text-sm rounded-md font-semibold">Tarik Tunai</a>
+                </p>
+                <a href="{{ route('topup.index') }}"
+                    class="topup mt-4 h-full flex flex-col items-center p-3 bg-green-500 text-white rounded-lg font-semibold">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-arrow-bar-up" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5zm-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                    Top Up
+                </a>
+              </div>
           </div>
       </div>
       <div class="top-right">
@@ -30,13 +39,30 @@
                 Pengeluaran Saat Ini
             </p>
             <p class="text-2xl font-semibold">{{ format_to_rp(Auth::user()->wallet->debit) }}</p>
-
             </div>
            
         </div>
       </div>
 </div>
 
+<div class="w-full flex justify-center">
+  @if (Auth::user())
+    <div class="wallets-balance flex items-center">
+        <a href="{{ route('tarik.tunai') }}" class="topup h-full flex flex-col items-center p-4 text-white rounded-lg font-semibold">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-down" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M3.5 10a.5.5 0 0 1-.5-.5v-8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 0 0 1h2A1.5 1.5 0 0 0 14 9.5v-8A1.5 1.5 0 0 0 12.5 0h-9A1.5 1.5 0 0 0 2 1.5v8A1.5 1.5 0 0 0 3.5 11h2a.5.5 0 0 0 0-1z"/>
+            <path fill-rule="evenodd" d="M7.646 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V5.5a.5.5 0 0 0-1 0v8.793l-2.146-2.147a.5.5 0 0 0-.708.708z"/>
+          </svg>
+        Tarik Tunai
+        </a>
+        <div class="wallet py-4 px-8 rounded-lg text-white font-bold">
+          <p class="font-normal">Saldo Anda</p>
+          <p>{{ format_to_rp(Auth::user()->wallet->credit) }}</p>
+        </div>
+        
+    </div>
+  @endif
+</div>
 
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
     <div class="transaction-history">

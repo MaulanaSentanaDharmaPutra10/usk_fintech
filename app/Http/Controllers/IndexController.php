@@ -27,7 +27,6 @@ class IndexController extends Controller
     }
 
 
-
     public function profile(){
         $transactions = Transaction::where('user_id', Auth::user()->id)
         ->where('status','paid')
@@ -46,6 +45,8 @@ class IndexController extends Controller
         ->get()
         ->groupBy('created_at');
 
-        return view('profile', compact('transactions','topups','tariktunais'));
+        $categories = Category::all();
+
+        return view('profile', compact('transactions','topups','tariktunais', 'categories'));
     }
 }

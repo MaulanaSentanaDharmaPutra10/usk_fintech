@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,10 +21,11 @@ class TransactionController extends Controller
             $total_prices_all +=  $transaction->total_price;
         }
 
+        $categories = Category::all();
 
-
-        return view('cart',compact('transactions','total_prices_all'));
+        return view('cart',compact('transactions','total_prices_all','categories'));
     }
+
 
     public function add_to_cart(Request $request){
 

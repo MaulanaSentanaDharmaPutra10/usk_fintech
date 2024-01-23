@@ -1,9 +1,24 @@
-<div class="navbar bg-base-100 px-4 lg:px-16 shadow-md sticky top-0 z-50">
+<div class="navbar bg-green-500 px-4 lg:px-16 shadow-md sticky top-0 z-50 w-full gap-4">
     <div class="flex-1">
-      <a class="btn btn-ghost text-xl" href="{{ route('index') }}">Fintech</a>
+       <a class="btn btn-ghost font-mono text-3xl" href="{{ route('index') }}">Fintech Tenizen</a>
+      
+        <div class="product-list ">
+          <select class="select w-2/1 max-w-xs bg-green-500" id="select_category">
+              <option disabled selected>Kategori</option>
+              <option value="all">
+                  Semua Kategori
+              </option>
+              @foreach ($categories as $category )
+                <option id="{{ $category->id }}" value="{{ $category->id }}">
+                  {{ $category->name }}
+                </option>
+              @endforeach
+            </select>
+        </div>
     </div>
+    
     <div class="flex-none">
-      <ul class="menu menu-horizontal px-1 flex items-center">
+      <ul class="menu menu-horizontal px-1 text-xl flex items-center">
         @if(Auth::user())
         <li>
           <details>
@@ -28,7 +43,9 @@
               </svg></a>
         </li>
         @else
-         <a href="{{ route('login')}}">Login</a>
+        <button class="btn btn-light">
+          <a class="text-green-500" href="{{ route('login')}}">Masuk</a>
+        </button>
         @endif
       </ul>
     </div>

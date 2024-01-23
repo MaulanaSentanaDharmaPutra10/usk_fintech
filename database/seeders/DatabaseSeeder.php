@@ -27,8 +27,7 @@ class DatabaseSeeder extends Seeder
         Category::create([
           "name" =>  "Makanan"
         ]);
-
-        
+  
         Category::create([
           "name" =>  "Stationary"
         ]);
@@ -36,13 +35,11 @@ class DatabaseSeeder extends Seeder
         Role::create([
           "name" => "siswa",
         ]);
-
         
         Role::create([
             "name" => "bank",
         ]);
 
-        
         Role::create([
             "name" => "admin",
         ]);
@@ -58,7 +55,6 @@ class DatabaseSeeder extends Seeder
             "role_id" => 1,
             "password" => bcrypt("siswa123")
         ]);
-
         
         User::create([
             "name" => "bank",
@@ -66,14 +62,12 @@ class DatabaseSeeder extends Seeder
             "password" => bcrypt("bank123")
         ]);
 
-        
         User::create([
             "name" => "admin",
             "role_id" => 3,
             "password" => bcrypt("admin123")
         ]);
-
-        
+ 
         User::create([
             "name" => "kantin",
             "role_id" => 4,
@@ -88,84 +82,41 @@ class DatabaseSeeder extends Seeder
 
 
         Product::create([
-            "name" => "Es Teh",
+            "name" => "Es Lemon Tea",
             "category_id" => 1,
             "price" => 5000,
             "stock" => 30,
-            "description" => "Es Teh Enak",
-            "thumbnail" => "https://asset.kompas.com/crops/GRGOpdUcySMF4sTvMlSEpJpFcTM=/0x0:4939x3293/750x500/data/photo/2022/09/25/63300cfd403f0.jpg"
+            "description" => "Es Lemon tea Khas Jawa Barat",
+            "thumbnail" => "https://image.setoko.co/image_v2/1696346775534797844.jpg"
         ]);
 
         Product::create([
-            "name" => "Bakso",
+            "name" => "Bakso Bakar",
             "category_id" => 2,
             "price" => 15000,
             "stock" => 50,
-            "description" => "Bakso Enak",
-            "thumbnail" => "https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2023/07/25041221/ini-resep-kuah-bakso-sap-yang-mudah-dibuat-di-rumah.jpg"
+            "description" => "Bakso bakar khas madura",
+            "thumbnail" => "https://i0.wp.com/resepkoki.id/wp-content/uploads/2020/10/Resep-Bakso-Bakar-Pedas-Manis-1.jpg?fit=438%2C496&ssl=1"
+        ]);
+
+        Product::create([
+            "name" => "Buku PPKN",
+            "category_id" => 3,
+            "price" => 55000,
+            "stock" => 70,
+            "description" => "Buku Pelajaran PPKN",
+            "thumbnail" => "https://image.slidesharecdn.com/pknkls7revisi2017-180601161143/85/buku-siswa-ppkn-kelas-vii-edisi-revisi-2017-1-320.jpg?cb=1665833569"
         ]);
 
         
         Product::create([
-            "name" => "Pensil",
+            "name" => "Pensil 2B",
             "category_id" => 3,
-            "price" => 3000,
-            "stock" => 70,
-            "description" => "Pensil",
-            "thumbnail" => "https://cahayamustika.com/image/cache/catalog/ATK/ALAT%20TULIS/PENSIL/Staedtler/ATK%20Terlengkap%20Malang%20Pensil%20Staedtler%20Mars%20Lumograph%20HB-500x500.jpg"
-        ]);
-
-        Product::create([
-            "name" => "Es Teh Lemon",
-            "category_id" => 1,
             "price" => 5000,
-            "stock" => 30,
-            "description" => "Es Teh Enak",
-            "thumbnail" => "https://asset.kompas.com/crops/GRGOpdUcySMF4sTvMlSEpJpFcTM=/0x0:4939x3293/750x500/data/photo/2022/09/25/63300cfd403f0.jpg"
-        ]);
-
-        Product::create([
-            "name" => "Bakso Mercon",
-            "category_id" => 2,
-            "price" => 15000,
-            "stock" => 50,
-            "description" => "Bakso Enak",
-            "thumbnail" => "https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2023/07/25041221/ini-resep-kuah-bakso-sap-yang-mudah-dibuat-di-rumah.jpg"
-        ]);
-
-        
-        Product::create([
-            "name" => "Pensil HB",
-            "category_id" => 3,
-            "price" => 3000,
             "stock" => 70,
-            "description" => "Pensil",
-            "thumbnail" => "https://cahayamustika.com/image/cache/catalog/ATK/ALAT%20TULIS/PENSIL/Staedtler/ATK%20Terlengkap%20Malang%20Pensil%20Staedtler%20Mars%20Lumograph%20HB-500x500.jpg"
+            "description" => "Pensil yang biasa dipakai",
+            "thumbnail" => "https://images.tokopedia.net/img/cache/700/product-1/2019/10/25/4247590/4247590_3082e5f1-9eeb-4457-8261-2ae65d4c2eb8_700_700.jpg"
         ]);
-
-        Transaction::create([
-            "user_id" => 1,
-            "quantity" => 2,
-            "product_id" => 3,
-            "status" => "not_paid",
-            "order_id" => "inv-23",
-            "total_price" => 6000
-        ]); 
-         
-        // TopUp::create([
-        //    "nominals" => 150000,
-        //    "status" => "unconfirmed",
-        //    "order_id" => "inv-23",
-        //    "user_id" => 1
-        // ]);
-
-        // TarikTunai::create([
-        //    "user_id" => 1,
-        //    "nominals" => 50000,
-        //    "status" => "unconfirmed",
-        //    "order_id" => "inv-23"
-        // ]); 
-
 
 
 
